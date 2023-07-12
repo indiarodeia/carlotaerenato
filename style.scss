@@ -1,0 +1,469 @@
+@font-face {
+    font-family: '"Futura Lt BT"';
+    src: url("/assets/fonts/futult-webfont.woff2") format("woff2"),
+        url("/assets/fonts/futult-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Futura Lt BT";
+    src: url("/assets/fonts/futural-webfont.woff2") format("woff2"),
+        url("/assets/fonts/futural-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Palatino Linotype";
+    src: url("/assets/fonts/palab-webfont.woff2") format("woff2"),
+        url("/assets/fonts/palab-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+//-------- FONT VARIABLES -------//
+$palatino: "Palatino Linotype", serif;
+$futura: "Futura Lt BT", sans-serif;
+
+$blue: #1c2b45;
+
+// Font Weight
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$black: 900;
+
+@mixin flex($justify-content, $align-items, $flex-direction: row) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: $justify-content;
+    -ms-flex-pack: $justify-content;
+    justify-content: $justify-content;
+    -webkit-box-align: $align-items;
+    -ms-flex-align: $align-items;
+    align-items: $align-items;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $flex-direction;
+    flex-direction: $flex-direction;
+}
+
+@mixin font($font-family, $font-weight, $font-size, $color) {
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    color: $color;
+}
+
+/*******************************************************************************************************************/
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+html {
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #000;
+    font-size: 62.5%;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100vw;
+    height: 100%;
+    font-family: "Futura Lt BT", sans-serif;
+    background-color: #ffffff;
+}
+main {
+    width: 100vw;
+    height: auto;
+}
+
+section {
+    width: 100vw;
+}
+
+ul {
+    list-style-type: none;
+}
+
+button,
+button:focus {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* TEXT STYLES */
+
+h1 {
+    @include font($palatino, $bold, 42px, $blue);
+    text-align: center;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 900px) {
+        font-size: 36px;
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 32px;
+    }
+    @media screen and (max-width: 390px) {
+        font-size: 26px;
+        line-height: 30px;
+    }
+}
+
+h2 {
+    @include font($palatino, $bold, 52px, $blue);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    @media screen and (max-width: 900px) {
+        font-size: 42px;
+        letter-spacing: 1px;
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 34px;
+    }
+}
+
+h3 {
+    @include font($futura, $regular, 26px, #181818);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @media screen and (max-width: 900px) {
+        font-size: 22px;
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 18px;
+    }
+}
+
+h4 {
+    @include font($palatino, $regular, 29px, #ffffff);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+
+    @media screen and (max-width: 900px) {
+        font-size: 26px;
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+}
+
+h5 {
+    @include font($futura, $light, 22px, #fff);
+    background-color: $blue;
+    width: 350px;
+    height: 38px;
+    @include flex(center, center);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @media screen and (max-width: 900px) {
+        font-size: 18px;
+        height: 36px;
+        width: 300px;
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 16px;
+        height: 34px;
+        width: 260px;
+    }
+}
+
+h5.ementa {
+    font-size: 26px;
+    width: 100%;
+}
+
+h6 {
+    @include font($palatino, $bold, 36px, #fff);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 32px;
+
+    @media screen and (max-width: 1020px) {
+        font-size: 28px;
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 22px;
+    }
+}
+
+/* SECTIONS */
+
+section#banner {
+    @include flex(flex-start, center, column);
+    padding: 60px;
+    gap: 40px;
+
+    @media screen and (max-width: 900px) {
+        padding: 40px 0;
+    }
+
+    #logo-banner {
+        width: auto;
+        height: 100%;
+        max-height: 100px;
+
+        @media screen and (max-width: 900px) {
+            max-height: 80px;
+        }
+        @media screen and (max-width: 500px) {
+            max-height: 60px;
+        }
+    }
+
+    .flex-imgs {
+        @include flex(center, stretch);
+        gap: 16px;
+        max-width: 900px;
+        max-height: 500px;
+
+        @media screen and (max-width: 900px) {
+            width: 100%;
+            gap: 8px;
+        }
+
+        @media screen and (max-width: 600px) {
+            gap: 6px;
+        }
+
+        .each-img {
+            height: auto;
+            width: 32%;
+            overflow: hidden;
+
+            img {
+                height: 100%;
+                width: auto;
+
+                @media screen and (max-width: 900px) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    .flex-booked {
+        @include flex(center, center, column);
+        gap: 6px;
+    }
+
+    .info-wrapper {
+        @include flex(flex-start, stretch, column);
+        gap: 60px;
+        margin-top: 20px;
+
+        @media screen and (max-width: 900px) {
+            gap: 40px;
+        }
+        @media screen and (max-width: 500px) {
+            gap: 30px;
+        }
+
+        .each-info {
+            @include flex(flex-start, stretch, column);
+            gap: 12px;
+
+            p {
+                @include font($palatino, $regular, 25px, #000000);
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+
+                @media screen and (max-width: 900px) {
+                    font-size: 22px;
+                }
+                @media screen and (max-width: 500px) {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+.ementa-wrapper {
+    background-color: #f5f5f5;
+    padding: 20px;
+    gap: 26px;
+    max-width: 500px;
+    @include flex(flex-start, stretch, column);
+    margin-top: 20px;
+    border-radius: 16px;
+
+    /*   @media screen and (max-width: 900px) {
+        gap: 40px;
+    }
+    @media screen and (max-width: 500px) {
+        gap: 30px;
+    } */
+}
+.each-plate {
+    @include flex(flex-start, center, column);
+    gap: 8px;
+
+    .plate-title {
+        @include font($palatino, $bold, 25px, $blue);
+        text-transform: uppercase;
+        text-align: center;
+        @media screen and (max-width: 768px) {
+            font-size: 22px;
+        }
+    }
+    .plate-description {
+        @include font($futura, $light, 16px, #000);
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 25px;
+    }
+}
+.small-info {
+    @include font($futura, $light, 12px, #000);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#map {
+    width: 100vw;
+    height: auto;
+    margin-bottom: -3px;
+    .map-frame {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+section#presence {
+    background-color: $blue;
+    @include flex(flex-start, center, column);
+    gap: 76px;
+    padding: 60px 0;
+
+    .pp {
+        @include font($futura, $regular, 20px, #c6c6c6);
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        @media screen and (max-width: 900px) {
+            font-size: 18px;
+        }
+        @media screen and (max-width: 500px) {
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+    }
+
+    .flex-wrapper {
+        @include flex(center, stretch);
+        gap: 40px;
+
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 800px) {
+            width: 100%;
+        }
+        .img-contacts {
+            max-height: 370px;
+            height: auto;
+            width: auto;
+
+            @media screen and (max-width: 1000px) {
+                max-height: 310px;
+            }
+            @media screen and (max-width: 500px) {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .contact {
+            @include flex(center, flex-end, column);
+            gap: 6px;
+
+            @media screen and (max-width: 800px) {
+                align-items: flex-start;
+            }
+
+            a {
+                @include flex(flex-end, center);
+                gap: 6px;
+                @include font($futura, $regular, 20px, #ffffff);
+                letter-spacing: 1px;
+                white-space: nowrap;
+
+                @media screen and (max-width: 800px) {
+                    justify-content: flex-start;
+                }
+
+                @media (hover: hover) {
+                    &:hover {
+                        color: #bafffd;
+
+                        .icon {
+                            path {
+                                fill: #bafffd;
+                            }
+                        }
+                    }
+                }
+
+                .icon {
+                    height: 20px;
+                    width: auto;
+                }
+            }
+        }
+        .contact.right {
+            align-items: flex-start;
+        }
+        .contact.desktop {
+            @media screen and (max-width: 800px) {
+                display: none;
+            }
+        }
+        .contact.mobile {
+            display: none;
+            @media screen and (max-width: 800px) {
+                display: flex;
+            }
+        }
+    }
+    #logo-footer {
+        height: 63px;
+        width: auto;
+    }
+}
